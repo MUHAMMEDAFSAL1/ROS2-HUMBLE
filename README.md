@@ -6,4 +6,6 @@
 
 ROS 2 Humble Hawksbill is the eighth official release of the Robot Operating System (ROS) 2, and it is designated as a Long-Term Support (LTS) release, ensuring support and updates until May 2027. This release is optimized for Ubuntu 22.04 (Jammy Jellyfish) and is designed to enhance the development of robotic applications across various platforms, including Windows 10 and macOS.
 
-<pre> bash git clone https://github.com/yourusername/yourrepo.git cd yourrepo npm install </pre>
+Ubuntu installation steps 
+step1
+
