@@ -9,3 +9,21 @@ ROS 2 Humble Hawksbill is the eighth official release of the Robot Operating Sys
 #  Ubuntu installation steps 
 step1
 
+# 🧠 What is a Node in ROS 2?
+A Node is the smallest executable unit in ROS 2. Think of it as a single program/module in your robot.
+# ✅ Key Points:
+    Each node does one job (e.g., reading sensors, controlling motors, etc.).
+
+    Multiple nodes can run simultaneously and communicate with each other.
+
+    Written in Python or C++.
+
+# 📦 Example from a Drone:
+Let’s say your drone has these parts:
+|Component | 	ROS Node | 
+|----------|----------|
+|IMU Sensor   | Data     | 
+| Row 2    | Values   | 
+
+
+Each of these runs as a separate node, and they communicate using topics, services, or actions.
