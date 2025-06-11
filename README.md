@@ -117,7 +117,7 @@ ros2 run <your_package_name> hello_node
 
 This example publishes messages on the `chatter` topic every second.
 
-```python
+python
 from rclpy.node import Node
 from std_msgs.msg import String
 
@@ -136,7 +136,7 @@ class Talker(Node):
 
 
 
- 🧠 What is a Node in ROS 2?
+##   🧠 What is a Node in ROS 2?
 A Node is the smallest executable unit in ROS 2. Think of it as a single program/module in your robot.
 ### 🔧 Notes about ROS Nodes
 
@@ -170,7 +170,7 @@ This will render correctly on GitHub as a highlighted code block:
 
 ### 🔧 Creating a Node (Python Example)
 
-```python
+python
 import rclpy
 from rclpy.node import Node
 
