@@ -28,3 +28,11 @@ Let’s say your drone has these parts:
 
 
 Each of these runs as a separate node, and they communicate using topics, services, or actions.
+### 💬 Node Communication Types
+
+- **Topics** – For streaming data (like sensor values or commands)  
+  👉 *Example:* `/imu/data`, `/cmd_vel`
+
+- **Services** – For request-response actions (like taking a photo)
+
+- **Actions** – For long-running tasks (like navigating to a waypoint)
