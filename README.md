@@ -52,46 +52,46 @@ You can write nodes in either language based on your project needs.
 > - `listener.cpp` (C++ subscriber)
 # 🛠️ Installation
 
-# ✅ System: Ubuntu 22.04 + ROS 2 Humble
+## ✅ System: Ubuntu 22.04 + ROS 2 Humble
 
 Follow the steps below to install ROS 2 Humble on Ubuntu 22.04:
 
 
-# Update and upgrade system packages
+## Update and upgrade system packages
 sudo apt update && sudo apt upgrade
 
-# Install required tools
+## Install required tools
 sudo apt install curl gnupg2 lsb-release
 
-# Add the ROS 2 GPG key
+## Add the ROS 2 GPG key
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-# Add the ROS 2 repository to your system
+## Add the ROS 2 repository to your system
 echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
 | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
-# Update package list
+## Update package list
 sudo apt update
 
-# Install the full desktop version of ROS 2 Humble
+## Install the full desktop version of ROS 2 Humble
 sudo apt install ros-humble-desktop
 
-# Source the ROS 2 environment
+## Source the ROS 2 environment
 source /opt/ros/humble/setup.bash
 
-# Create a new workspace and source directory
+## Create a new workspace and source directory
 mkdir -p ~/ros2_ws/src
 
-# Navigate to the workspace root
+## Navigate to the workspace root
 cd ~/ros2_ws
 
-# Build the workspace (even if empty, this sets it up properly)
+## Build the workspace (even if empty, this sets it up properly)
 colcon build
 
-# Source the workspace environment
+## Source the workspace environment
 source install/setup.bash
 
-# 🧱 Creating a Node (Python Example)
+## 🧱 Creating a Node (Python Example)
 import rclpy
 from rclpy.node import Node
 
@@ -107,11 +107,11 @@ def main(args=None):
     rclpy.shutdown()
 
 
-# 🚀 Run with:
+## 🚀 Run with:
 
 ros2 run <your_package_name> hello_node
 
-# 📡 Topic Communication
+## 📡 Topic Communication
 
 ## 📨 Publisher Node (Python)
 
