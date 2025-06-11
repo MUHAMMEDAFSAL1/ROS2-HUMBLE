@@ -6,6 +6,22 @@
 
 ROS 2 Humble Hawksbill is the eighth official release of the Robot Operating System (ROS) 2, and it is designated as a Long-Term Support (LTS) release, ensuring support and updates until May 2027. This release is optimized for Ubuntu 22.04 (Jammy Jellyfish) and is designed to enhance the development of robotic applications across various platforms, including Windows 10 and macOS.
 
+ROS 2 (Robot Operating System 2) is not an operating system — it’s a framework that provides tools, libraries, and conventions for building robot applications. It helps different parts of a robot (sensors, motors, processors) communicate easily.
+🧠 ROS 2 Core Concepts
+Concept	Description
+Node	A single executable that performs computation.
+💡 Example: motor_controller_node
+Topic	A communication channel used by nodes to publish or subscribe messages (1-to-many).
+Publisher	Sends messages to a topic so others can receive them.
+Subscriber	Listens for messages on a topic to receive updates.
+Message	A predefined data structure sent between nodes.
+📝 Example: geometry_msgs/msg/Vector3
+Service	A two-way synchronous communication. One node sends a request, another replies.
+Action	Used for long-running tasks that give feedback and can be canceled (e.g., navigation).
+Parameter	Configuration variable set at runtime to modify node behavior.
+Launch	A file that starts multiple nodes and sets parameters automatically.
+Package	A directory structure that contains source code, launch files, config, etc.
+
 
 
 # 🧠 What is a Node in ROS 2?
