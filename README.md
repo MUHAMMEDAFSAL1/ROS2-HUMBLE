@@ -56,7 +56,7 @@ You can write nodes in either language based on your project needs.
 
 Follow the steps below to install ROS 2 Humble on Ubuntu 22.04:
 
-```bash
+
 # Update and upgrade system packages
 sudo apt update && sudo apt upgrade
 
@@ -107,7 +107,7 @@ def main(args=None):
     rclpy.shutdown()
 
 
-🚀 Run with:
+# 🚀 Run with:
 
 ros2 run <your_package_name> hello_node
 
@@ -136,7 +136,7 @@ class Talker(Node):
 
 
 
-# 🧠 What is a Node in ROS 2?
+ 🧠 What is a Node in ROS 2?
 A Node is the smallest executable unit in ROS 2. Think of it as a single program/module in your robot.
 ### 🔧 Notes about ROS Nodes
 
