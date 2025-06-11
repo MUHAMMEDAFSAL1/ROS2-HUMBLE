@@ -52,7 +52,7 @@ You can write nodes in either language based on your project needs.
 > - `listener.cpp` (C++ subscriber)
 # 🛠️ Installation
 
-## ✅ System: Ubuntu 22.04 + ROS 2 Humble
+# ✅ System: Ubuntu 22.04 + ROS 2 Humble
 
 Follow the steps below to install ROS 2 Humble on Ubuntu 22.04:
 
@@ -79,13 +79,6 @@ sudo apt install ros-humble-desktop
 # Source the ROS 2 environment
 source /opt/ros/humble/setup.bash
 
-# 🧪 First Steps
-
-## 🗂️ Create a ROS 2 Workspace
-
-A workspace is where you'll keep your ROS 2 packages.
-
-```bash
 # Create a new workspace and source directory
 mkdir -p ~/ros2_ws/src
 
@@ -97,11 +90,8 @@ colcon build
 
 # Source the workspace environment
 source install/setup.bash
+
 # 🧱 Creating a Node (Python Example)
-
-## 📄 File: `hello_node.py`
-
-```python
 import rclpy
 from rclpy.node import Node
 
@@ -116,7 +106,9 @@ def main(args=None):
     rclpy.spin(node)
     rclpy.shutdown()
 
-#Run with:
+
+🚀 Run with:
+
 ros2 run <your_package_name> hello_node
 
 # 📡 Topic Communication
