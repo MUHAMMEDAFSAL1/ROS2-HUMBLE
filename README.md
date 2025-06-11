@@ -58,10 +58,10 @@ Follow the steps below to install ROS 2 Humble on Ubuntu 22.04:
 
 
 ## Update and upgrade system packages
-sudo apt update && sudo apt upgrade
+   sudo apt update && sudo apt upgrade
 
 ## Install required tools
-sudo apt install curl gnupg2 lsb-release
+   sudo apt install curl gnupg2 lsb-release
 
 ## Add the ROS 2 GPG key
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
