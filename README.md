@@ -57,16 +57,6 @@ def main(args=None):
     node = HelloNode()
     rclpy.spin(node)
     rclpy.shutdown()
-This will render on GitHub as:
-
----
-
- 
-### 🔧 Creating a Node (Python Example)
-
-```bash
-ros2 node list              # List all running nodes
-ros2 node info /node_name   # Get info about a specific node
-ros2 run <pkg_name> <node_executable>  # Run a node from a package
-
-
+ros2 node list             # List all running nodes
+ros2 node info /node_name  # Get info about a specific node
+ros2 run pkg_name node_exe # Run a node from a package
