@@ -92,19 +92,19 @@ colcon build
 source install/setup.bash
 
 ## 🧱 Creating a Node (Python Example)
-import rclpy
-from rclpy.node import Node
+      import rclpy
+      from rclpy.node import Node
 
-class HelloNode(Node):
-    def __init__(self):
-        super().__init__('hello_node')
-        self.get_logger().info("Hello from ROS 2 Node!")
+      class HelloNode(Node):
+      def __init__(self):
+      super().__init__('hello_node')
+      self.get_logger().info("Hello from ROS 2 Node!")
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = HelloNode()
-    rclpy.spin(node)
-    rclpy.shutdown()
+      def main(args=None):
+      rclpy.init(args=args)
+      node = HelloNode()
+      rclpy.spin(node)
+      rclpy.shutdown()
 
 
 ## 🚀 Run with:
