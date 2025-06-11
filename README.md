@@ -117,12 +117,11 @@ ros2 run <your_package_name> hello_node
 
 This example publishes messages on the `chatter` topic every second.
 
-from std_msgs.msg import String
-from rclpy.node import Node
-import rclpy
+    from std_msgs.msg import String
+    from rclpy.node import Node
+   import rclpy
 
-
-   class Talker(Node):
+class Talker(Node):
     def __init__(self):
         super().__init__('talker')
         self.publisher = self.create_publisher(String, 'chatter', 10)
@@ -134,7 +133,7 @@ import rclpy
         msg.data = 'Hello, ROS 2!'
         self.publisher.publish(msg)
 
-    def main(args=None):
+   def main(args=None):
     rclpy.init(args=args)
     node = Talker()
     rclpy.spin(node)
