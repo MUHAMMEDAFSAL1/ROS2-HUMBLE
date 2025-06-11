@@ -117,9 +117,9 @@ ros2 run <your_package_name> hello_node
 
 This example publishes messages on the `chatter` topic every second.
 
-python
-from rclpy.node import Node
 from std_msgs.msg import String
+from rclpy.node import Node
+import rclpy
 
 class Talker(Node):
     def __init__(self):
@@ -132,8 +132,13 @@ class Talker(Node):
         msg = String()
         msg.data = 'Hello, ROS 2!'
         self.publisher.publish(msg)
-        self.get_logger().info(f'Published: "{msg.data}"')
 
+def main(args=None):
+    rclpy.init(args=args)
+    node = Talker()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
 
 
 ##   🧠 What is a Node in ROS 2?
