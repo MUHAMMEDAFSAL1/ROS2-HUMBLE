@@ -36,3 +36,25 @@ Each of these runs as a separate node, and they communicate using topics, servic
 - **Services** – For request-response actions (like taking a photo)
 
 - **Actions** – For long-running tasks (like navigating to a waypoint)
+
+This will render correctly on GitHub as a highlighted code block:
+
+---
+
+### 🔧 Creating a Node (Python Example)
+
+```python
+import rclpy
+from rclpy.node import Node
+
+class HelloNode(Node):
+    def __init__(self):
+        super().__init__('hello_node')
+        self.get_logger().info("Hello from ROS 2 Node!")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = HelloNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
