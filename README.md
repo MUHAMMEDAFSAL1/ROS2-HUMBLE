@@ -23,6 +23,124 @@ This document summarizes the key concepts used in ROS 2 (Robot Operating System 
 | **Parameter** | Configuration variable set at runtime to modify node behavior.                  |
 | **Launch**    | A file that starts multiple nodes and sets parameters automatically.            |
 | **Package**   | A directory structure that contains source code, launch files, config, etc.      |
+# ⚙️ ROS 2 Architecture
+
+## ✅ DDS (Data Distribution Service)
+
+ROS 2 uses **DDS (Data Distribution Service)** as its communication middleware.  
+It provides:
+
+- Fast, real-time, and scalable communication.
+- Automatic discovery of nodes and topics.
+- Support for distributed systems (nodes can run across different machines).
+
+💡 This makes ROS 2 more suitable for industrial and real-time applications than ROS 1.
+
+---
+
+## ✅ Language Support
+
+ROS 2 supports multiple client libraries:
+
+- 🐍 **Python** via [`rclpy`](https://github.com/ros2/rclpy)
+- 💻 **C++** via [`rclcpp`](https://github.com/ros2/rclcpp)
+
+You can write nodes in either language based on your project needs.
+
+> Example:
+> - `talker.py` (Python publisher)
+> - `listener.cpp` (C++ subscriber)
+# 🛠️ Installation
+
+## ✅ System: Ubuntu 22.04 + ROS 2 Humble
+
+Follow the steps below to install ROS 2 Humble on Ubuntu 22.04:
+
+```bash
+# Update and upgrade system packages
+sudo apt update && sudo apt upgrade
+
+# Install required tools
+sudo apt install curl gnupg2 lsb-release
+
+# Add the ROS 2 GPG key
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+
+# Add the ROS 2 repository to your system
+echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" \
+| sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+# Update package list
+sudo apt update
+
+# Install the full desktop version of ROS 2 Humble
+sudo apt install ros-humble-desktop
+
+# Source the ROS 2 environment
+source /opt/ros/humble/setup.bash
+
+# 🧪 First Steps
+
+## 🗂️ Create a ROS 2 Workspace
+
+A workspace is where you'll keep your ROS 2 packages.
+
+```bash
+# Create a new workspace and source directory
+mkdir -p ~/ros2_ws/src
+
+# Navigate to the workspace root
+cd ~/ros2_ws
+
+# Build the workspace (even if empty, this sets it up properly)
+colcon build
+
+# Source the workspace environment
+source install/setup.bash
+# 🧱 Creating a Node (Python Example)
+
+## 📄 File: `hello_node.py`
+
+```python
+import rclpy
+from rclpy.node import Node
+
+class HelloNode(Node):
+    def __init__(self):
+        super().__init__('hello_node')
+        self.get_logger().info("Hello from ROS 2 Node!")
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = HelloNode()
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+#Run with:
+ros2 run <your_package_name> hello_node
+
+# 📡 Topic Communication
+
+## 📨 Publisher Node (Python)
+
+This example publishes messages on the `chatter` topic every second.
+
+```python
+from rclpy.node import Node
+from std_msgs.msg import String
+
+class Talker(Node):
+    def __init__(self):
+        super().__init__('talker')
+        self.publisher = self.create_publisher(String, 'chatter', 10)
+        timer_period = 1.0  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello, ROS 2!'
+        self.publisher.publish(msg)
+        self.get_logger().info(f'Published: "{msg.data}"')
 
 
 
