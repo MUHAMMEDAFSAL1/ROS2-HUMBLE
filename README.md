@@ -104,23 +104,17 @@ sudo apt install software-properties-common -y
 sudo add-apt-repository universe
 ```
 
-Add ROS 2 GPG key:
+Installing the ros2-apt-source package:
 
 ```bash
 sudo apt update && sudo apt install curl -y
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key \
--o /usr/share/keyrings/ros-archive-keyring.gpg
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}')
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+sudo dpkg -i /tmp/ros2-apt-source.deb
 ```
 
-Add ROS 2 repository:
 
-```bash
-echo "deb [arch=$(dpkg --print-architecture) \
-signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] \
-http://packages.ros.org/ros2/ubuntu \
-$(. /etc/os-release && echo $UBUNTU_CODENAME) main" | \
-sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-```
+
 
 Update package index:
 
@@ -150,7 +144,7 @@ Includes:
 sudo apt install ros-humble-desktop -y
 ```
 
-### Install Minimal Version
+### Install Minimal Version/Installing Raspberry pi
 
 ```bash
 sudo apt install ros-humble-ros-base -y
@@ -167,103 +161,7 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Verify installation:
-
-```bash
-printenv ROS_DISTRO
-```
-
-Expected output:
-
-```
-humble
-```
-
----
-
-## 🛠 Step 5: Install Development Tools
-
-```bash
-sudo apt install python3-colcon-common-extensions -y
-sudo apt install python3-rosdep -y
-sudo rosdep init
-rosdep update
-```
-
-Optional build tools:
-
-```bash
-sudo apt install build-essential cmake git -y
-```
-
----
-
-## ✅ Step 6: Test Installation
-
-Open Terminal 1:
-
-```bash
-ros2 run demo_nodes_cpp talker
-```
-
-Open Terminal 2:
-
-```bash
-ros2 run demo_nodes_py listener
-```
-
-If messages are publishing and receiving, ROS 2 is working correctly 🎉
-
----
-
-## 📂 Create ROS 2 Workspace
-
-Create workspace:
-
-```bash
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws
-```
-
-Build workspace:
-
-```bash
-colcon build
-```
-
-Source workspace:
-
-```bash
-source install/setup.bash
-```
-
-To make it permanent:
-
-```bash
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
-```
-
----
-
-## ✅ DDS (Data Distribution Service)
-
-ROS 2 uses DDS as its communication middleware.
-
-DDS provides:
-
-- Fast and real-time communication
-- Automatic node discovery
-- Decentralized architecture (no ROS Master)
-- QoS (Quality of Service) configuration
-- Multi-machine communication support
-
-This makes ROS 2 more suitable for industrial and distributed robotic systems compared to ROS 1.
-
----
-
-## 📌 Useful ROS 2 Commands
-
-Li
+ros 2 supporting lanaguages 
 
 - 🐍 **Python** via [`rclpy`](https://github.com/ros2/rclpy)
 - 💻 **C++** via [`rclcpp`](https://github.com/ros2/rclcpp)
